@@ -169,3 +169,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# MacOS stuff
+
+._*
+.Spotlight-V100
+.Trashes

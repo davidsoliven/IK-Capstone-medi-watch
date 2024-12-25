@@ -1,0 +1,8 @@
+apache-airflow
+s3fs
+boto3
+pandas
+numpy
+mlflow
+scikit-learn
+imbalanced-learn
