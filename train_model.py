@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 ######################################
 
 # Path to the preprocessed CSV (could be on S3 or local)
-PREPROCESSED_PATH = "s3://mlflow-artifacts-001573566022/diabetic_data_cleaned.csv"
+PREPROCESSED_PATH = "s3://my-bucket/folder/diabetic_data_cleaned.csv"
 
 # Columns that need one-hot encoding
 # You might want to define these in code or dynamically infer them
@@ -146,7 +146,7 @@ def run_training():
                                               ],
         # Potentially add more, like min_samples_leaf, threshold etc.
         #threhold
-        'clf__threshold': [0.3, 0.4, 0.5]
+        'clf__threshold': [0.2, 0.3, 0.4, 0.45, 0.5]
 
     }
 

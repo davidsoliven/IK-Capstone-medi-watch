@@ -10,7 +10,7 @@ services:
     environment:
       - AWS_DEFAULT_REGION=us-east-1
       - MLFLOW_S3_ENDPOINT_URL=https://s3.amazonaws.com
-      - MLFLOW_ARTIFACT_ROOT=s3://mlflow-artifacts-001573566022/mlflow
+      - MLFLOW_ARTIFACT_ROOT=s3://s3bucketname/mlflow
     command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri postgresql://airflow:airflow@db/mlflow
     depends_on:
       db:

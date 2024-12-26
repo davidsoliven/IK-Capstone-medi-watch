@@ -14,7 +14,7 @@ ADMISSION_SOURCE_MAPPING = "/opt/airflow/data/admission_source_mapping.csv"
 
 # S3 output path (bucket + key).
 # Example: "s3://my-bucket/folder/diabetic_data_preprocessed.csv"
-OUTPUT_CSV_S3_PATH = "s3://mlflow-artifacts-001573566022/diabetic_data_cleaned.csv"
+OUTPUT_CSV_S3_PATH = "s3://my-bucket/folder/diabetic_data_cleaned.csv"
 
 
 ######################################

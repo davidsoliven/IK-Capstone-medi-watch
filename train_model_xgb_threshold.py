@@ -120,7 +120,7 @@ pr_auc_custom_scorer = make_scorer(pr_auc_for_class1, needs_proba=True, greater_
 # 4) Main training function
 ######################################
 def run_training_xgb_threshold():
-    PREPROCESSED_PATH = "s3://mlflow-artifacts-001573566022/diabetic_data_cleaned.csv"
+    PREPROCESSED_PATH = "s3://my-bucket/folder/diabetic_data_cleaned.csv"
     print(f"Loading data from {PREPROCESSED_PATH} ...")
     df = pd.read_csv(PREPROCESSED_PATH)
 
