@@ -4,6 +4,7 @@ MediWatch is an end-to-end MLOps capstone project aiming to predict patient read
 
 Datasets
 
+```markdown 
     * `diabetic_data.csv` A diabetes-related dataset spanning multiple hospital admissions.
 
     * `IDS_Mapping.csv` a legend for some of the numerical categories (like admission type and discharge disposition). This dataset was further split into `admission_source_mapping.csv`, `admission_type_mapping.csv`, and `discharge_disposition_mapping.csv`.
@@ -11,7 +12,7 @@ Datasets
     * Key Challenge: <30 readmissions are the minority class, meaning highly imbalanced data (majority are Not <30).
 
     * The data includes demographic info, lab results, diagnoses, and other features.
-     
+```     
 
 
 
@@ -20,8 +21,11 @@ The diabetic dataset and IDS_Mapping can be downloaded from [UCI Machine Learnin
 Additional information for the dataset can be found on [Kaggle](https://www.kaggle.com/datasets/brandao/diabetes/data)
 
 Preprocessing Steps
+
     1.	Mapping categorical columns (race, gender, etc.) using OneHotEncoder.
+
     2.	Handling missing values, merging “?” with unknown categories, removing columns with high missingness, etc.
+
     3.	Converting readmitted to a binary label: <30 vs. Not <30.
 
 
@@ -165,9 +169,9 @@ mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ml
 
 ### 3.4 preprocess_and_train_dag.py (Airflow DAG)
 
-	1.	preprocess_data_task calls preprocess_data.py.
-	2.	train_model_task calls train_model.py.
-	3.	train_model_xgb_threshold_task calls train_model_xgb_threshold.py.
+    1.  preprocess_data_task calls preprocess_data.py.
+    2.	train_model_task calls train_model.py.
+    3.	train_model_xgb_threshold_task calls train_model_xgb_threshold.py.
 
     Flow:
 
