@@ -3,11 +3,15 @@
 MediWatch is an end-to-end MLOps capstone project aiming to predict patient readmissions within 30 days (<30 days) using a diabetes-related hospital dataset. The project showcases advanced ML pipelines, custom metrics for imbalanced data, threshold tuning, and robust orchestration using Airflow, MLflow, and optional Docker.
 
 Datasets
+
     * `diabetic_data.csv` A diabetes-related dataset spanning multiple hospital admissions.
+
     * `IDS_Mapping.csv` a legend for some of the numerical categories (like admission type and discharge disposition). This dataset was further split into `admission_source_mapping.csv`, `admission_type_mapping.csv`, and `discharge_disposition_mapping.csv`.
+
     * Key Challenge: <30 readmissions are the minority class, meaning highly imbalanced data (majority are Not <30).
+
     * The data includes demographic info, lab results, diagnoses, and other features.
-    * 
+     
 
 
 
