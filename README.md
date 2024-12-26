@@ -70,7 +70,7 @@ cd mediwatch-capstone
 
 Make sure you have the following structure:
 
-
+```
 mediwatch-capstone/
 ├── data/
 │   ├── diabetic_data.csv
@@ -86,7 +86,7 @@ mediwatch-capstone/
 │   └── preprocess_and_train_dag.py
 ├── docker-compose.yml
 └── README.md
-
+```
 
 ### 2.2 Environment Options
 
