@@ -91,10 +91,15 @@ mediwatch-capstone/
 ### 2.2 Environment Options
 
 Option A: Docker Compose
+
 	1.	Install Docker & Docker Compose:
+
         * Docker installation guide
+
         * Docker Compose installation
+
 	2.	Build & Launch:
+
 ```bash
 docker-compose build
 docker-compose up -d
@@ -110,8 +115,11 @@ docker-compose up -d
 ![Screenshot](images/mlflow.png)
 
 Option B: Local Python
+
 	1.	Install Python 3.8+
+
 	2.	Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -133,22 +141,26 @@ mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ml
 ## 3. Pipeline Overview
 
 ### 3.1 preprocess_data.py
+
 	* Reads ./data/diabetic_data.csv plus any mapping CSVs.
 	* Cleans and merges columns, handles missingness, normalizes certain features.
 	* Writes diabetic_data_cleaned.csv locally or to S3.
 
 ### 3.2 train_model.py
+
 	* A baseline or random forest approach:
 	* Splits data into train/val/test.
 	* Possibly does GridSearchCV (hyperparameter tuning).
 	* Logs metrics (e.g., F1, precision, recall) to MLflow.
 
 ### 3.3 train_model_xgb_threshold.py
+
 	* Uses numeric label encoding for <30 vs. Not <30 to satisfy XGBoost’s constraints.
 	* Builds a pipeline with SMOTE, threshold tuning, and custom scorers (precision–recall AUC, cost-based metric).
 	* Logs best parameter sets and final performance to MLflow.
 
 ### 3.4 preprocess_and_train_dag.py (Airflow DAG)
+
 	1.	preprocess_data_task calls preprocess_data.py.
 	2.	train_model_task calls train_model.py.
 	3.	train_model_xgb_threshold_task calls train_model_xgb_threshold.py.
@@ -191,6 +203,7 @@ This attempts a test run of just the train_model_xgb_threshold_task.
 You can similarly test preprocess_data_task or train_model_task.
 
 ## 6. Frequently Encountered Issues
+
 	1.	Label Mismatch
 	    * If you see “Invalid classes… [0 1], got [’<30’,‘Not <30’],” ensure your final predictions and y_true are both numeric or both strings.
 	    * Our final approach uses numeric predictions [0,1] in scikit-learn scoring, so cost or confusion matrix works.
@@ -204,6 +217,7 @@ You can similarly test preprocess_data_task or train_model_task.
 	    * If writing data or artifacts to S3, ensure AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY or an attached IAM role is set in the container environment.
 
 ## 7. Next Steps
+
 	* Expand Hyperparameter Search: More threshold values, deeper XGBoost trees, different learning rates.
 	* Feature Engineering: Summaries of patient history, grouping diagnoses, or domain-specific transformations.
 	* Deployment: The final best model can be registered in MLflow’s model registry or served via a REST API (e.g., Flask or FastAPI).
